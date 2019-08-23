@@ -1,7 +1,8 @@
-Django==2.2
-djangorestframework==3.9
+Django~=2.2.4
+djangorestframework~=3.9.1
 drf-yasg[validation]
 Markdown==3.1.1
 django-filter==2.2.0
 packaging==19.1
 invoke==1.3.0
+gunicorn~=19.9.0

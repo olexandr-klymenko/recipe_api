@@ -10,9 +10,10 @@ chardet==3.0.4            # via requests
 coreapi==2.3.3            # via drf-yasg
 coreschema==0.0.4         # via coreapi, drf-yasg
 django-filter==2.2.0
-django==2.2
-djangorestframework==3.9.0
+django==2.2.4
+djangorestframework==3.9.4
 drf-yasg[validation]==1.16.1
+gunicorn==19.9.0
 idna==2.8                 # via requests
 inflection==0.3.1         # via drf-yasg
 invoke==1.3.0

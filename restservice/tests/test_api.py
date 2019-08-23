@@ -129,9 +129,6 @@ class RecipeTestCase(TestCase):
         return response.json()
 
 
-# Create your tests here.
-
-# TODO: Create Docker file content
 # TODO: Create tasks.py file content
 # TODO: Create docker-compose.yaml
 # TODO: Create README.md file content

@@ -3,6 +3,7 @@
 import tempfile
 from contextlib import suppress
 from pathlib import Path
+import os
 
 from invoke import task, UnexpectedExit
 
@@ -111,6 +112,22 @@ def run_dev(ctx, port=CONTAINER_PORT):
     """Run the app in development mode."""
     ctx.run(f"./manage.py migrate")
     ctx.run(f"./manage.py runserver 0.0.0.0:{port}")
+
+
+@task
+def run(ctx):
+    """Run the app in production mode.
+
+    This task can be run from Docker
+    """
+    os.environ["DJANGO_SETTINGS_MODULE"] = "recipe_api.settings"
+    ctx.run(f"./manage.py collectstatic --no-input")
+    ctx.run(f"./manage.py migrate --no-input")
+    ctx.run(
+        f"gunicorn --log-file=- --error-logfile=- --access-logfile=- "
+        f"--threads=10 --worker-class=gthread "
+        f"--bind 0.0.0.0:{CONTAINER_PORT} recipe_api.wsgi:application"
+    )
 
 
 @task

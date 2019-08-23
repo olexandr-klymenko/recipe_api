@@ -128,3 +128,5 @@ SWAGGER_SETTINGS = {
     "USE_SESSION_AUTH": False,
     "DEFAULT_INFO": "recipe_api.urls.info",
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
