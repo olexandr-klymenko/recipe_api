@@ -98,15 +98,6 @@ def build_docker(ctx, tag="latest", no_cache=False):
     print("Done")
 
 
-@task(help={"cmd": "Command to run instead of the default one"})
-def run_docker(ctx, cmd=""):
-    """Run the dockerized app in production mode.
-
-    This task requires the `.env` file to be populated.
-    """
-    ctx.run(f'./scripts/docker-run.sh "{cmd}"', pty=True)
-
-
 @task(help={"port": f"Port number, default is {CONTAINER_PORT}"})
 def run_dev(ctx, port=CONTAINER_PORT):
     """Run the app in development mode."""
